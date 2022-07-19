@@ -15,8 +15,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_ROOT = os.path.join(BASE_DIR, "Homeapp/static")
-STATIC_DIR=os.path.join(BASE_DIR,'Homeapp/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_DIR=os.path.join(BASE_DIR,'static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +26,7 @@ STATIC_DIR=os.path.join(BASE_DIR,'Homeapp/static')
 SECRET_KEY = 'django-insecure-9m1537!%e(*q=78*@1x-6rs*rk07^&fhk$j@@y1w)8b0xnja_g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'thawing-woodland-05010.herokuapp.com']
 
@@ -62,7 +62,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR,'Homeapp/templates'),
+            os.path.join(BASE_DIR,'templates'),
+            #os.path.join(BASE_DIR,'Homeapp/templates'),
             # BASE_DIR / "Homeapp\templates",
             # BASE_DIR / "libralian\templates",
             # BASE_DIR / "std_app\templates",
