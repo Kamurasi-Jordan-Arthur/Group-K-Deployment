@@ -21,7 +21,7 @@ class Books(models.Model):
 class Borrowedbooks(models.Model):
     bks_iyd       = models.OneToOneField(Books, on_delete=models.CASCADE)
     std_number  = models.OneToOneField(Std_model, on_delete=models.CASCADE)
-    borrow_date = models.DateField(auto_now_add= True,)try 11
+    borrow_date = models.DateField(auto_now_add= True,)
 
     def __str__(self):
         return self.bks_id
