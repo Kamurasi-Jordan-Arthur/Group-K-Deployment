@@ -1,1 +1,1 @@
-web: gunicorn Group-K-Deployment.wsgi --log-file -
+web: gunicorn LibApp.wsgi --log-file -
