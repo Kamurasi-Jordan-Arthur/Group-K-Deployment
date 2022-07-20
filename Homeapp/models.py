@@ -7,7 +7,7 @@ import datetime as dt
 
 # Create your models here.
 class Books(models.Model):
-    itd               = models.IntegerField( primary_key= True )
+    id               = models.IntegerField( primary_key= True )
     book_title       = models.CharField( max_length= 70 )
     publication_date = models.DateField('publication date')
     subject_area     = models.CharField( max_length= 70 )
@@ -19,9 +19,9 @@ class Books(models.Model):
 # related_name="bookid"
 # related_name="stdNumber"
 class Borrowedbooks(models.Model):
-    bks_id       = models.OneToOneField(Books, on_delete=models.CASCADE)
+    bks_iyd       = models.OneToOneField(Books, on_delete=models.CASCADE)
     std_number  = models.OneToOneField(Std_model, on_delete=models.CASCADE)
-    borrow_date = models.DateField(auto_now_add= True,)
+    borrow_date = models.DateField(auto_now_add= True,)try 11
 
     def __str__(self):
         return self.bks_id
