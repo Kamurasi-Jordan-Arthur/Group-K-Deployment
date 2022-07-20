@@ -33,7 +33,7 @@ class Search_form( Form ):
     def clean_your_search(self, *args, **kwargs):
         your_search = self.cleaned_data.get("your_search")
         by = self.cleaned_data.get("by")
-        if ((by is "availability") and (your_search in (0,1))):
+        if ((by == "availability") and (your_search in (0,1))):
             raise forms.ValidationError("for \"availability\" only use \"1\" and \"0\" for \"True\" and \"False\" respectively ")
         else:
             #raise forms.ValidationError("for \"availability\" only use \"1\" and \"0\" for \"True\" and \"False\" respectively ")
