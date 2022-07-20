@@ -19,7 +19,7 @@ class Books(models.Model):
 # related_name="bookid"
 # related_name="stdNumber"
 class Borrowedbooks(models.Model):
-    bks_iyd       = models.OneToOneField(Books, on_delete=models.CASCADE)
+    bks_id       = models.OneToOneField(Books, on_delete=models.CASCADE)
     std_number  = models.OneToOneField(Std_model, on_delete=models.CASCADE)
     borrow_date = models.DateField(auto_now_add= True,)
 
