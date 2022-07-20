@@ -16,10 +16,11 @@ class Books(models.Model):
     
     def __str__(self):
         return self.book_title
-
+# related_name="bookid"
+# related_name="stdNumber"
 class Borrowedbooks(models.Model):
-    bks_id       = models.OneToOneField(Books, related_name="bookid", on_delete=models.CASCADE)
-    std_number  = models.OneToOneField(Std_model,related_name="stdNumber", on_delete=models.CASCADE)
+    bks_id       = models.OneToOneField(Books, on_delete=models.CASCADE)
+    std_number  = models.OneToOneField(Std_model, on_delete=models.CASCADE)
     borrow_date = models.DateField(auto_now_add= True,)
 
     def __str__(self):
