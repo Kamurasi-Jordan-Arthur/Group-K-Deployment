@@ -7,7 +7,7 @@ import datetime as dt
 
 # Create your models here.
 class Books(models.Model):
-    id               = models.IntegerField( primary_key= True )
+    itd               = models.IntegerField( primary_key= True )
     book_title       = models.CharField( max_length= 70 )
     publication_date = models.DateField('publication date')
     subject_area     = models.CharField( max_length= 70 )
