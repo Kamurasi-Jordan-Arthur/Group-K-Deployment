@@ -10,15 +10,27 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from operator import truediv
 import os
-import django_heroku
+# import django_heroku
 from pathlib import Path
+# from dotenv import load_dotenv
+# load_dotenv()
+# import environ
+# env = environ.Env()
+# environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_DIR=os.path.join(BASE_DIR,'static')
+STATIC_DIR = os.path.join(BASE_DIR,'static')
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD =os.environ.get("EMAIL_HOST_PASSWORD")
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,9 +40,9 @@ STATIC_DIR=os.path.join(BASE_DIR,'static')
 SECRET_KEY = 'django-insecure-9m1537!%e(*q=78*@1x-6rs*rk07^&fhk$j@@y1w)8b0xnja_g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'https://thawing-woodland.herokuapp.com/Homeapp/Home/']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://libappnotify.herokuapp.com/Homeapp/Home/']
 
 
 # Application definition
@@ -45,7 +57,19 @@ INSTALLED_APPS = [
     'Homeapp.apps.HomeappConfig',
     'libralian.apps.LibralianConfig',
     'std_app.apps.StdAppConfig',
+    # 'django_celery_beat'
 ]
+
+#Celery, Celery Beat and Redis settings
+# CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379")
+# CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://redis:6379")
+# if CELERY_RESULT_BACKEND == 'django-db':
+#     INSTALLED_APPS += ['django_celery_results',]
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_TIMEZONE = 'Africa/Nairobi'
+# CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,10 +112,20 @@ WSGI_APPLICATION = 'LibApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django-lib-db',
+        'USER': 'root',
+        'PASSWORD' : '@Kamuraijfk0299',
+        "HOST": "127.0.0.1",
+        'PORT': '3306'
     }
 }
 
@@ -120,7 +154,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -131,16 +165,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = [
-#     BASE_DIR / "Homeapp/static",
-#     ]
-# STATIC_ROOT = [
-#     os.path.join(BASE_DIR, 'static')
-#]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

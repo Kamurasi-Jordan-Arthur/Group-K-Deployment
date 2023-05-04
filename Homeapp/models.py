@@ -38,5 +38,6 @@ class Borrowedbooks(models.Model):
             return "Ushs 5000"
         else:
             return "Ushs 0"
+            
     def return_date(self,*args,**kwargs):
         return self.borrow_date + timezone.timedelta(days = 3)

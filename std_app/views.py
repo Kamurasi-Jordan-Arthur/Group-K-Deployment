@@ -45,9 +45,11 @@ def std_books_search_veiw(request, std_number ):
         "user"       :  std_number,
         "app"    :  "std_app",
     }
+    # notify()
     return HttpResponse(render(request, "search.html" ,context))
 
 def borrow_book_view(request , std_number ,bk_id ):
+    notify()
     book_being_borrowed = Books.objects.get( id = bk_id )
     borrowing_student = Std_model.objects.get( personal_No = std_number)
     if (not book_being_borrowed.availability):
@@ -69,4 +71,17 @@ def borrow_book_view(request , std_number ,bk_id ):
     #Borrowedbooks.objects.create(bks_id = bk_id, std_number = std_number, borrow_date = dt.datetime.now().date()).save()
     # template = loader.get_template('''template.html''')
 
-    return HttpResponsePermanentRedirect(f"/std_app/{std_number}/")
+    # return HttpResponsePermanentRedirect(f"/std_app/{std_number}/")
+
+def notify():
+    from Homeapp.models import Borrowedbooks
+    from django.core.mail import send_mail
+    from django.utils import timezone
+    from django.conf import settings
+    set = Borrowedbooks.objects.all()
+    for x in set:
+        subject = f"Notice to return { x.bks_id.book_title }"
+        message = f"Dear { x.std_number.stdname }, \nYou are hear by being remindered that you should are left with one day to the return of \n{x.bks_id.book_title}" 
+        if timezone.now() == (x.borrow_date + timezone.timedelta(days = 2)):
+            send_mail(subject, message, settings.EMAIL_HOST_USER, [x.std_number.email,])
+    print ("notify me please")
