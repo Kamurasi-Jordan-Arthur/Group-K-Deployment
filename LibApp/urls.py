@@ -25,7 +25,8 @@ from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Homeapp/', include('Homeapp.urls')),
+    path('', include('Homeapp.urls')),
+    # path('Homeapp/', include('Homeapp.urls')),
     path('libralian/', include('libralian.urls')),
     path('std_app/', include('std_app.urls')),
     #url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
