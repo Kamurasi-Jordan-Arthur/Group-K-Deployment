@@ -14,10 +14,11 @@
                         <th>borrow date</th>
                             <th>return date</th>
                                 <th>penalty</th>
+                                    <th>return the book</th>
     <tr>
 
 {% for x in borrowed_bks %}
-<tr>
+<tr style='background-color:{% cycle 'lightblue' 'pink' %}'>
     <td>{{forloop.counter}}</td>
         <td>{{ x.std_number.personal_No }}</td>
             <td>{{ x.std_number.stdname }}</td>
@@ -26,6 +27,7 @@
                         <td>{{ x.borrow_date }}</td>
                             <td>{{ x.return_date }}</td>
                                 <td>{{x.penalty}}</td>
+                                    {% comment %} <td><a href = "/{{app}}/{{user}}/return/{{x.bks_id.pk}}">render it returned</a></td> {% endcomment %}
     </tr>
     
 
