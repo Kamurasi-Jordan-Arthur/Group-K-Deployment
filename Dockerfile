@@ -8,10 +8,11 @@ COPY  requirements.txt requirements.txt
 
 COPY . .
 
-RUN pip install update pip
+RUN python -m pip install --update pip
 
 # RUN apk update && apk add mysql-client
 # RUN apt-get update && apt-get install -y default-mysql-client
+RUN pip3 install psycopg2-binary
 
 RUN pip install -r requirements.txt
 
