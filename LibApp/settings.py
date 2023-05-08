@@ -118,14 +118,15 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'rblhhsphdliygfkffdyxggxj',
-#         'USER': 'ahsgpehrkhwrydfu',
-#         'PASSWORD' : '',
-#         "HOST": "102.134.147.233",
-#         'PORT': '32764'
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'hkvOJfLxcC7ibAyhTLsr',
+#         'HOST': 'containers-us-west-17.railway.app',
+#         'PORT': '5646',
 #     }
 # }
 
