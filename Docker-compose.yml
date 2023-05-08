@@ -3,13 +3,11 @@ version : "3.8"
 services:
   app:
     build: .
-    volumes:
-      - .:/libapp
     ports:
       - 8000:8000
     image: app:codding
     container_name: code_container
-    # command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     expose:
       - 8000
     depends_on:
