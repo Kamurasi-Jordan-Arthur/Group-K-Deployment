@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:slim-buster
 
 ENV PYTHONUNBUFFERED=1
 
@@ -6,4 +6,13 @@ WORKDIR /libapp
 
 COPY  requirements.txt requirements.txt
 
-RUN pip3 install -r requirements.txt
+COPY . .
+
+# RUN apk update && apk add mysql-client
+RUN apt-get update && apt-get install -y default-mysql-client
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8000
+
+CMD ["Python3", "manage.py", "makemigrations", "0.0.0.0:8000"]
