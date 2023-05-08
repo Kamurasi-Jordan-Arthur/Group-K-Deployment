@@ -8,14 +8,12 @@ COPY  requirements.txt requirements.txt
 
 COPY . .
 
-# RUN python -m pip install --update pip
+RUN apt-get update && apt-get install -y python3
 
-# RUN apk update && apk add mysql-client
-# RUN apt-get update && apt-get install -y default-mysql-client
 RUN pip3 install psycopg2-binary
 
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["Python3", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["Python", "manage.py", "runserver", "0.0.0.0:8000"]
