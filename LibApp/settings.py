@@ -125,17 +125,27 @@ WSGI_APPLICATION = 'LibApp.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'hkvOJfLxcC7ibAyhTLsr',
+#         'HOST': 'containers-us-west-17.railway.app',
+#         'PORT': '5646',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'hkvOJfLxcC7ibAyhTLsr',
-        'HOST': 'containers-us-west-17.railway.app',
-        'PORT': '5646',
+        'NAME': 'qdzrjzmiwnbpaqsastzgsioa',
+        'USER': 'sswgteewgiqyhfut',
+        'PASSWORD': 'Vl1Dmkxfy4yHGpjrVj0rQuu-HY^-e#9f',
+        'HOST': '102.134.147.233',
+        'PORT': '32761',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
