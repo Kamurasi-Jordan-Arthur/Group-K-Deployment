@@ -43,11 +43,13 @@ SECRET_KEY = 'django-insecure-9m1537!%e(*q=78*@1x-6rs*rk07^&fhk$j@@y1w)8b0xnja_g
 DEBUG = False
 
 ALLOWED_HOSTS = [
+                 'https://libapp-74269821-ecf4-4b95-afdc.cranecloud.io',
+                 'https://cloudlibrary-3e55dc50-a051-4d41-b8df.cranecloud.io',
                 #  '127.0.0.1', 
-                #  'https://group-k-deployment-production.up.railway.app/',
+                 'https://group-k-deployment-production.up.railway.app',
                 #  'https://libapp-99a6f10f-b1ab-4adc-a1df.cranecloud.io/',
                 #  'https://libapp-74269821-ecf4-4b95-afdc.cranecloud.io',
-                 '*'
+                 '*',
                  ]
 
 
