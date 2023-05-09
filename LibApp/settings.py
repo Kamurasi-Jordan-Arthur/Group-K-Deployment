@@ -48,7 +48,12 @@ ALLOWED_HOSTS = [
                  '127.0.0.1', 
                  'group-k-deployment-production.up.railway.app',         
                  ]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://cloudlibrary-3e55dc50-a051-4d41-b8df.cranecloud.io',
+    'https://libapp-74269821-ecf4-4b95-afdc.cranecloud.io',
+    'https://cloudlibrary-3e55dc50-a051-4d41-b8df.cranecloud.io',
+    'https://group-k-deployment-production.up.railway.app', 
+]
 
 # Application definition
 
