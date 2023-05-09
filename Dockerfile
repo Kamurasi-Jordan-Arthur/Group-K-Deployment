@@ -6,9 +6,9 @@ WORKDIR /libapp
 
 COPY  requirements.txt requirements.txt
 
-# COPY . .
+COPY . .
 
-VOLUME . /libapp
+# VOLUME . /libapp
 
 # RUN apt-get update && apt-get install -y python3
 
@@ -16,6 +16,6 @@ VOLUME . /libapp
 
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 8000:8000
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
