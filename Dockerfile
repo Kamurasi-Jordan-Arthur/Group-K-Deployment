@@ -12,7 +12,7 @@ COPY . .
 
 # RUN apt-get update && apt-get install -y python3
 
-# RUN pip3 install psycopg2-binary
+RUN pip3 install psycopg2-binary
 
 RUN pip install -r requirements.txt
 
